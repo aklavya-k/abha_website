@@ -420,7 +420,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onPageChange: _onPageChange, 
                       borderRadius: '8px',
                       fontSize: '1rem',
                       transition: 'border-color 0.3s ease',
-                      backgroundColor: 'white'
+                      backgroundColor: '#FAF5EA'
                     }}
                     onFocus={(e) => e.target.style.borderColor = 'var(--primary-red)'}
                     onBlur={(e) => e.target.style.borderColor = 'rgba(212, 175, 55, 0.3)'}

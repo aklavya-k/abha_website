@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Force event page buttons to dark text for contrast on white backgrounds */
+/* Force event page buttons to ABHA theme colors for contrast */
 .events-grid .btn-hbcu-primary,
 .events-grid .btn-hbcu-secondary,
 .event-cta .btn-hbcu-primary,
 .event-cta .btn-hbcu-secondary {
-  color: #222 !important;
-  border-color: #7a1b1b !important;
-  background: #fff !important;
+  color: #7a1b1b !important;
+  border-color: #d4af37 !important;
+  background: #fffdf8 !important;
 }
 
 .events-grid .btn-hbcu-primary:hover,
@@ -15,8 +15,8 @@
 .event-cta .btn-hbcu-primary:hover,
 .event-cta .btn-hbcu-secondary:hover {
   background: #7a1b1b !important;
-  color: #fff !important;
-  border-color: #7a1b1b !important;
+  color: #ffd700 !important;
+  border-color: #ffd700 !important;
 }
 
 /* ABHA - Association of Bengalis in Harrisburg Area Styles */
@@ -1731,7 +1731,7 @@ body::before {
 
 /* Event Section */
 .hbcu-event-section {
-  background: #f8f9fa;
+  background: var(--background-cream, #FAF5EA);
   padding: 6rem 0;
 }
 
@@ -1758,7 +1758,7 @@ body::before {
 .hbcu-event-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #0a0a0a;
+  color: #2D1B14;
   margin-bottom: 0.5rem;
 }
 
@@ -1771,7 +1771,7 @@ body::before {
 
 .hbcu-event-description {
   font-size: 1.1rem;
-  color: #666;
+  color: #5A4738;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -1787,12 +1787,12 @@ body::before {
 
 .hbcu-detail-label {
   font-weight: 600;
-  color: #0a0a0a;
+  color: #2D1B14;
   min-width: 80px;
 }
 
 .hbcu-detail-value {
-  color: #666;
+  color: #5A4738;
 }
 
 .hbcu-event-actions {
@@ -1810,13 +1810,13 @@ body::before {
   max-width: 400px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(180, 83, 9, 0.15);
 }
 
 /* Investment Section */
 .hbcu-investment-section {
-  background: #0a0a0a;
-  color: white;
+  background: linear-gradient(135deg, #1f0b02 0%, #3d0a0a 45%, #611313 100%);
+  color: #FFFDF8;
   padding: 6rem 0;
 }
 
@@ -1826,6 +1826,7 @@ body::before {
   text-align: center;
   margin-bottom: 3rem;
   letter-spacing: -0.01em;
+  color: #FFD700;
 }
 
 .hbcu-investment-grid {
@@ -1837,15 +1838,16 @@ body::before {
 }
 
 .hbcu-investment-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(38, 14, 7, 0.85);
   padding: 2.5rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
   transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
 }
 
 .hbcu-investment-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(55, 18, 10, 0.95);
   transform: translateY(-5px);
 }
 
@@ -1853,17 +1855,17 @@ body::before {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: white;
+  color: #FFD700;
 }
 
 .hbcu-card-description {
-  color: #e0e0e0;
+  color: #FEF3C7;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .hbcu-card-link {
-  color: #D4AF37;
+  color: #FFD700;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -1887,13 +1889,13 @@ body::before {
 
 /* Heritage Section */
 .hbcu-heritage-section {
-  background: white;
+  background: var(--background-cream, #FAF5EA);
   padding: 6rem 0;
 }
 
 .hbcu-heritage-description {
   font-size: 1.2rem;
-  color: #333333;
+  color: #2D1B14;
   text-align: center;
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -1910,16 +1912,16 @@ body::before {
 .hbcu-heritage-card {
   text-align: center;
   padding: 2rem;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #FFFDF8;
+  border: 1px solid #E8DCC6;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(180, 83, 9, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hbcu-heritage-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(180, 83, 9, 0.15);
 }
 
 .hbcu-heritage-icon {
@@ -1931,18 +1933,18 @@ body::before {
 .hbcu-heritage-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #7A1B1B;
   margin-bottom: 1rem;
 }
 
 .hbcu-heritage-text {
-  color: #666;
+  color: #5A4738;
   line-height: 1.6;
 }
 
 /* Timeline Section */
 .hbcu-timeline-section {
-  background: #f8f9fa;
+  background: var(--background-cream, #FAF5EA);
   padding: 6rem 0;
 }
 
@@ -3060,7 +3062,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f9fa;
+  background: #FAF0D7;
 }
 
 .upcoming-events-section .hbcu-event-poster {

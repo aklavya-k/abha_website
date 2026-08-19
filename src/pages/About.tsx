@@ -138,7 +138,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onPageChange }) => {
       </section>
 
       {/* 2026 Operational Committee Section */}
-      <section className="announcement-section" style={{ background: '#fafafa' }}>
+      <section className="announcement-section" style={{ background: 'var(--background-cream, #FAF5EA)' }}>
         <div className="container">
           <h2 className="hbcu-section-title">2026 ABHA Operational Committee</h2>
           <div className="announcement-card" style={{ textAlign: 'left' }}>

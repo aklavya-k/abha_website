@@ -40,24 +40,36 @@ const EventsPage: React.FC<EventsPageProps> = ({ initialExpandedEvent, onPageCha
   const eventsByYear: { [key: string | number]: Event[] } = {
     2026: [
       {
-        title: "Boishakhi 2026 (Bengali New Year 1433)",
-        description: "Save the date. Let’s sing, dance, eat, and enjoy as we welcome the Bengali New Year with delicious traditional cuisine, live music and cultural performances, community gathering and festive spirit.",
+        title: "ABHA Annual Picnic 2026",
+        description: "Join us for our Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages.",
         category: "Upcoming",
+        date: "September 12, 2026",
+        time: "11:00 AM - 6:00 PM",
+        venue: "Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074",
+        details: "RSVP BY AUGUST 30, 2026. Event Schedule: 11:00 AM Arrival, Setup & Adda • 12:30 PM Outdoor Games & Kids Activities • 1:30 PM Grand Picnic Feast • 3:30 PM Music, Cultural Performances & Evening Snacks • 6:00 PM Wrap Up. Location: Site 2, Pavilions Loop, Little Buffalo State Park, Newport PA. Contact: associationbengalisharrisburg@hotmail.com • #ABHAPicnic2026",
+        highlights: ["RSVP by August 30, 2026", "Adda & Socializing", "Delicious Picnic Feast & Snacks", "Outdoor Games & Sports", "Cultural Activities & Music", "Little Buffalo State Park (Site 2)"],
+        image: "/assets/images/events/Picnic2026.jpeg",
+        fallbackImage: "🧺"
+      },
+      {
+        title: "Boishakhi 2026 (Bengali New Year 1433)",
+        description: "Welcomed the Bengali New Year with traditional cuisine, live music, cultural performances, community gathering, and festive spirit.",
+        category: "Past",
         date: "May 9, 2026",
         time: "4:00 PM - 10:00 PM",
         venue: "Lemoyne Community Hall, 510 Herman Avenue, Lemoyne, PA 17043",
-        details: "Schedule: 4:00–4:45pm Haasi aar Adda (Socialization) • 4:45–5:45pm Kolkata Street Food (Snacks, Food Stalls — CASH ONLY) • 6:00–8:00pm Jomjomat Sanskritik Unushthan (Cultural Program) • 8:00–10:00pm Raater Khaoa Daoa (Dinner). Contact: associationbengalisharrisburg@hotmail.com • abhaweb.org • facebook.com/ABHAweb",
-        highlights: ["Haasi aar Adda (4:00–4:45)", "Kolkata Street Food (4:45–5:45) — Cash Only", "Cultural Program (6:00–8:00)", "Dinner (8:00–10:00)", "Lemoyne Community Hall"],
+        details: "Schedule: 4:00–4:45pm Haasi aar Adda (Socialization) • 4:45–5:45pm Kolkata Street Food • 6:00–8:00pm Jomjomat Sanskritik Unushthan (Cultural Program) • 8:00–10:00pm Raater Khaoa Daoa (Dinner).",
+        highlights: ["Haasi aar Adda", "Kolkata Street Food", "Cultural Program", "Community Dinner", "Lemoyne Community Hall"],
         image: "/assets/images/events/Boishakhi26.jpeg",
         fallbackImage: "🎊"
       },
       {
         title: "Saraswati Puja 2026",
-        description: "ABHA is geared up to celebrate the First Event of the year - Saraswati Puja on Feb 8th.",
+        description: "ABHA celebrated Saraswati Puja with puja, anjali, khichuri, adda, and a cultural program.",
         category: "Past",
         date: "February 8, 2026",
         time: "11:00 AM Onwards",
-        venue: "Community Center, Harrisburg PA (TBC)",
+        venue: "Community Center, Harrisburg PA",
         details: "ABHA celebrated Saraswati Puja with puja, anjali, khichuri, adda, and a cultural program. Thank you to all volunteers and families for making it memorable.",
         highlights: ["Saraswati Puja", "Khichuri & Adda", "Cultural Program", "Community Gathering"],
         image: "https://res.cloudinary.com/dbudtzzfe/image/upload/v1768884838/WhatsApp_Image_2026-01-19_at_11.48.04_PM_p6xjfk.jpg",
@@ -577,14 +589,22 @@ const EventsPage: React.FC<EventsPageProps> = ({ initialExpandedEvent, onPageCha
           aria-modal="true"
           aria-label="Expanded image"
           onClick={() => setLightboxSrc(null)}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}
+          style={{
+            position: 'fixed', inset: 0, background: 'rgba(20, 6, 2, 0.92)', zIndex: 2000,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem',
+            backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)'
+          }}
         >
           <button
             onClick={(e) => { e.stopPropagation(); setLightboxSrc(null); }}
             aria-label="Close"
-            style={{ position: 'absolute', top: 16, right: 16, width: 40, height: 40, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.4)', color: '#fff', fontSize: 20, cursor: 'pointer' }}
+            style={{
+              position: 'absolute', top: 16, right: 16, width: 40, height: 40, borderRadius: '50%',
+              border: '1px solid rgba(255,215,0,0.5)', background: 'rgba(153,27,27,0.7)', color: '#ffd700',
+              fontSize: 20, cursor: 'pointer'
+            }}
           >×</button>
-          <img src={lightboxSrc} alt="Event" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 8, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }} />
+          <img src={lightboxSrc} alt="Event" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 12, border: '1px solid rgba(255,215,0,0.3)', boxShadow: '0 16px 48px rgba(0,0,0,0.6)' }} />
         </div>
       )}
 

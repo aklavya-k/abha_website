@@ -112,27 +112,29 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
     return () => window.removeEventListener('resize', resize);
   }, [heroStage]);
 
-  // Featured Event (Boishakhi 2026)
+  // Featured Event (ABHA Annual Picnic 2026)
   const featuredEvent = {
-    title: 'Boishakhi 2026 (Bengali New Year 1433)',
-    date: 'May 9, 2026',
-    time: '4:00 PM - 10:00 PM',
-    venue: 'Lemoyne Community Hall, 510 Herman Avenue, Lemoyne, PA 17043',
-    description: 'Save the date. Let\'s sing, dance, eat, and enjoy as we welcome the Bengali New Year with delicious traditional cuisine, live music and cultural performances, community gathering and festive spirit. Cash only for Kolkata Street Food.',
-    flyerImage: '/assets/images/events/Boishakhi26.jpeg',
-    ticketLink: 'mailto:associationbengalisharrisburg@hotmail.com?subject=Boishakhi%202026%20-%20Save%20the%20Date&body=Hello%20ABHA%20Team%2C%0D%0A%0D%0AI%E2%80%99m%20interested%20in%20Boishakhi%202026%20on%20May%209%2C%202026%20(4%E2%80%9310pm)%20at%20Lemoyne%20Community%20Hall.%20Please%20share%20registration%20and%20event%20details%20when%20available.%0D%0A%0D%0AThanks%2C%0D%0A',
+    title: 'ABHA Annual Picnic 2026',
+    date: 'September 12, 2026',
+    time: '11:00 AM - 6:00 PM',
+    venue: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
+    description: 'Join us for our Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.',
+    flyerImage: '/assets/images/events/Picnic2026.jpeg',
+    ticketLink: 'mailto:associationbengalisharrisburg@hotmail.com?subject=ABHA%20Annual%20Picnic%202026%20-%20RSVP&body=Hello%20ABHA%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20RSVP%20for%20the%20ABHA%20Annual%20Picnic%202026%20on%20September%2012%2C%202026%20at%20Little%20Buffalo%20State%20Park.%0D%0A%0D%0ANumber%20of%20Attendees%3A%20%0D%0AName%3A%20%0D%0AContact%20Phone%3A%20%0D%0A%0D%0AThank%20you!%0D%0A',
     artistSegments: [
-      'Haasi aar Adda (4:00–4:45pm)',
-      'Kolkata Street Food (4:45–5:45pm) — Cash Only',
-      'Cultural Program (6:00–8:00pm)',
-      'Dinner (8:00–10:00pm)'
+      '11:00 AM – Arrival, Setup & Adda',
+      '12:30 PM – Outdoor Games & Sports',
+      '1:30 PM – Grand Community Feast',
+      '3:30 PM – Music & Cultural Activities',
+      '6:00 PM – Wrap Up & Farewell'
     ],
     highlights: [
-      'Save the Date',
-      'Live Music & Cultural Performances',
-      'Kolkata Street Food (Cash Only)',
-      'Dinner',
-      'Lemoyne Community Hall'
+      'RSVP by August 30, 2026',
+      'Adda & Socializing',
+      'Delicious Picnic Feast',
+      'Outdoor Games & Sports',
+      'Cultural Activities & Music',
+      'Little Buffalo State Park (Site 2)'
     ],
     extraPosters: [] as string[]
   };
@@ -147,8 +149,8 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
         'Through the years it has also given us the ability to invite our non Bengali friends & introduce them to our festival!',
         'ABHA has been a lifeline to us in more ways than one. With the enthusiasm that I see in the organization, I expect to see it keep growing!'
       ],
-  author: 'Dr. Supriyo Ghosh',
-  credit: 'Dr. Supriyo Ghosh, MD, Internal Medicine'
+      author: 'Dr. Supriyo Ghosh',
+      credit: 'Dr. Supriyo Ghosh, MD, Internal Medicine'
     },
     {
       title: 'A Second Home Since 2019',
@@ -158,8 +160,8 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
         'Many amongst our extended family at ABHA may not count Bengali as their mother tongue, but still call Bengal home – through birth, marriage or work. And then there are those who are not ethnic Indians but have made Bengal and Bengali culture the center of their lives.',
         'Anyone with a love for our rich culture and a willingness to learn about our heritage will always find a home at ABHA. That is what ABHA stands for and that is why it is my home.'
       ],
-  author: 'Dhiman Chattopadhyay',
-  credit: 'Dr. Dhiman Chattopadhyay, Associate Professor, Shippensburg University'
+      author: 'Dhiman Chattopadhyay',
+      credit: 'Dr. Dhiman Chattopadhyay, Associate Professor, Shippensburg University'
     },
     {
       title: 'Inclusive & Creative Community',
@@ -168,8 +170,8 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
         'It has been a great place to choose and nurture friendship without being judged and always gives artistic freedom for all the members, nominating each one’s area of interest.',
         'Looking forward to taking the community based organization to next level celebrating the 10 years of Durga Puja completion in Greater Harrisburg.'
       ],
-  author: 'Bhaskar Ganguli',
-  credit: 'Bhaskar Ganguly, Chartered Accountant and Vocalist'
+      author: 'Bhaskar Ganguli',
+      credit: 'Bhaskar Ganguly, Chartered Accountant and Vocalist'
     },
     {
       title: 'ABHA Testimonial',
@@ -192,8 +194,8 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
             '@type': 'Event',
             name: featuredEvent.title,
             description: featuredEvent.description,
-            startDate: '2026-05-09T16:00:00-04:00',
-            endDate: '2026-05-09T22:00:00-04:00',
+            startDate: '2026-09-12T11:00:00-04:00',
+            endDate: '2026-09-12T18:00:00-04:00',
             eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
             eventStatus: 'https://schema.org/EventScheduled',
             location: {
@@ -236,24 +238,16 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
                 <img
                   src={featuredEvent.flyerImage}
                   alt="Event Flyer"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/images/events/Boishakhi.jpg'; }}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/images/events/Picnic2026.jpeg'; }}
                 />
                 <div className="event-card-zoom-indicator">
                   <span aria-hidden>🔎</span>
-                  <span>Zoom</span>
+                  <span>Zoom Flyer</span>
                 </div>
             </div>
 
             <div className="event-actions">
-              <a
-                className="btn-hbcu-primary"
-                href={featuredEvent.ticketLink}
-                style={{ textDecoration: 'none', display: 'inline-block', lineHeight: '1.5', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
-              >
-                Contact / Register
-              </a>
-      
-              <ShareButton title={featuredEvent.title} text={featuredEvent.description} label="Share" />
+              <ShareButton title={featuredEvent.title} text={featuredEvent.description} label="Share Event" />
               <a
                 className="btn-hbcu-secondary"
                 href={buildGoogleCalendarUrl({
@@ -286,7 +280,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
                   <strong className="event-info-label">COUNTDOWN</strong>
                   <div style={{ marginTop: '.35rem', display: 'flex', justifyContent: 'center' }}>
                     <Countdown
-                      target="2026-05-09T16:00:00-04:00"
+                      target="2026-09-12T11:00:00-04:00"
                       label=""
                       compact
                       style={{ background: 'transparent', border: 'none', padding: 0, borderRadius: 0 }}
@@ -395,8 +389,9 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
           aria-label="Expanded poster"
           onClick={() => setLightboxSrc(null)}
           style={{
-            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', zIndex: 2000,
-            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem'
+            position: 'fixed', inset: 0, background: 'rgba(20, 6, 2, 0.92)', zIndex: 2000,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem',
+            backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)'
           }}
         >
           <button
@@ -404,7 +399,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
             aria-label="Close"
             style={{
               position: 'absolute', top: 16, right: 16, width: 40, height: 40, borderRadius: '50%',
-              border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.4)', color: '#fff',
+              border: '1px solid rgba(255,215,0,0.5)', background: 'rgba(153,27,27,0.7)', color: '#ffd700',
               fontSize: 20, cursor: 'pointer'
             }}
           >×</button>
@@ -412,7 +407,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
             src={lightboxSrc}
             alt="Poster"
             onClick={(e) => e.stopPropagation()}
-            style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 8, boxShadow: '0 8px 32px rgba(0,0,0,0.5)' }}
+            style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 12, border: '1px solid rgba(255,215,0,0.3)', boxShadow: '0 16px 48px rgba(0,0,0,0.6)' }}
           />
         </div>
       )}

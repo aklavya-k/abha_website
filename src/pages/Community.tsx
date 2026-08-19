@@ -12,7 +12,7 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ onPageChange }) => {
       <section
         className="hbcu-hero-section"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/community-hero.jpg')",
+          backgroundImage: "linear-gradient(135deg, rgba(31, 11, 2, 0.85) 0%, rgba(97, 19, 19, 0.8) 100%), url('/assets/images/community-hero.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'multiply',

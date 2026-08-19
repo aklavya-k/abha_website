@@ -49,29 +49,36 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
         console.log(`Migrated ${eventsMigrated} events from old storage`);
       }
     } else {
+      const canonicalPicnicTitle = 'ABHA Annual Picnic 2026';
       const canonicalBoishakhiTitle = 'Boishakhi 2026 (Bengali New Year 1433)';
       const isBoishakhiTitle = (title: unknown) =>
         title === 'Boishaki 2026 (Bengali New Year 1433)' || title === canonicalBoishakhiTitle;
+      const isPicnicTitle = (title: unknown) =>
+        title === 'ABHA Annual Picnic 2026' || title === 'Annual Summer Picnic 2026' || title === 'Annual Picnic 2026';
 
       let changed = false;
 
-      // Archive Saraswati Puja 2026 if it exists
+      // Archive Saraswati Puja 2026 and Boishakhi 2026 if active; ensure Picnic 2026 is active
       const updatedEvents = currentEvents.map((event: any) => {
         if (event.title === 'Saraswati Puja 2026' && !event.archived) {
           changed = true;
           return { ...event, archived: true };
         }
 
-        // Keep Boishakhi 2026 aligned with the latest flyer info
-        if (isBoishakhiTitle(event.title)) {
+        if (isBoishakhiTitle(event.title) && !event.archived) {
+          changed = true;
+          return { ...event, archived: true };
+        }
+
+        if (isPicnicTitle(event.title)) {
           const next = {
             ...event,
-            title: canonicalBoishakhiTitle,
-            date: '2026-05-09',
-            description: "Save the date. Let's sing, dance, eat, and enjoy as we welcome the Bengali New Year with delicious traditional cuisine, live music and cultural performances, community gathering and festive spirit. Cash only for Kolkata Street Food.",
-            location: 'Lemoyne Community Hall, 510 Herman Avenue, Lemoyne, PA 17043',
-            category: 'festival' as const,
-            image: '/assets/images/events/Boishakhi.jpg',
+            title: canonicalPicnicTitle,
+            date: '2026-09-12',
+            description: "Join us for ABHA's Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.",
+            location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
+            category: 'community' as const,
+            image: '/assets/images/events/Picnic2026.jpeg',
             archived: false
           };
           const different = JSON.stringify(next) !== JSON.stringify(event);
@@ -82,22 +89,23 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
         return event;
       });
 
-      const boishakhiExists = updatedEvents.some((e: any) => isBoishakhiTitle(e.title));
+      const picnicExists = updatedEvents.some((e: any) => isPicnicTitle(e.title));
       let finalEvents = updatedEvents;
 
-      if (!boishakhiExists) {
+      if (!picnicExists) {
         changed = true;
-        const boishakhiEvent = {
+        const picnicEvent = {
           id: Date.now().toString(),
-          title: canonicalBoishakhiTitle,
-          date: '2026-05-09',
-          description: "Save the date. Let's sing, dance, eat, and enjoy as we welcome the Bengali New Year with delicious traditional cuisine, live music and cultural performances, community gathering and festive spirit. Cash only for Kolkata Street Food.",
-          location: 'Lemoyne Community Hall, 510 Herman Avenue, Lemoyne, PA 17043',
-          category: 'festival' as const,
-          image: '/assets/images/events/Boishakhi.jpg',
+          title: canonicalPicnicTitle,
+          date: '2026-09-12',
+          description: "Join us for ABHA's Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.",
+          location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
+          category: 'community' as const,
+          image: '/assets/images/events/Picnic2026.jpeg',
+          archived: false,
           createdAt: new Date().toISOString()
         };
-        finalEvents = [boishakhiEvent, ...updatedEvents];
+        finalEvents = [picnicEvent, ...updatedEvents];
       }
 
       if (changed) {

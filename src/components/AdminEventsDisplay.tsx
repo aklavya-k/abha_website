@@ -51,7 +51,7 @@ const AdminEventsDisplay: React.FC<AdminEventsDisplayProps> = ({ onEventSelect, 
 
   if (events.length === 0) {
     return showUpcomingOnly ? null : (
-      <div style={{ padding: '2rem', textAlign: 'center', background: '#f8f9fa', borderRadius: '12px', marginBottom: '2rem' }}>
+      <div style={{ padding: '2rem', textAlign: 'center', background: '#FAF0D7', border: '1px solid #D4AF37', borderRadius: '12px', marginBottom: '2rem' }}>
         <div style={{ color: '#666', fontStyle: 'italic' }}>
           <h4 style={{ margin: '0 0 0.5rem 0', color: '#7a1b1b' }}>Community Events</h4>
           <p style={{ margin: 0 }}>
@@ -139,7 +139,7 @@ const AdminEventsDisplay: React.FC<AdminEventsDisplayProps> = ({ onEventSelect, 
                   key={event.id}
                   className="admin-event-card upcoming-event"
                   style={{
-                    background: 'linear-gradient(135deg, #fff 0%, #f8f9fa 100%)',
+                    background: 'linear-gradient(135deg, #FAF0D7 0%, #F4E4BC 100%)',
                     borderRadius: '12px',
                     padding: '1.5rem',
                     border: '2px solid #7a1b1b',
@@ -291,12 +291,12 @@ const AdminEventsDisplay: React.FC<AdminEventsDisplayProps> = ({ onEventSelect, 
             showUpcomingOnly && (
               <div style={{ 
                 padding: '1.5rem', 
-                background: '#f8f9fa', 
+                background: '#FAF0D7', 
                 borderRadius: '8px', 
                 textAlign: 'center',
-                border: '2px dashed #ddd'
+                border: '2px dashed #D4AF37'
               }}>
-                <p style={{ margin: 0, color: '#666', fontStyle: 'italic' }}>
+                <p style={{ margin: 0, color: '#2D1B14', fontStyle: 'italic' }}>
                   No upcoming community events at this time.
                   <br />
                   <small>Check back soon for new announcements!</small>
@@ -325,10 +325,10 @@ const AdminEventsDisplay: React.FC<AdminEventsDisplayProps> = ({ onEventSelect, 
                 key={event.id}
                 className="admin-event-card past-event"
                 style={{
-                  background: 'white',
+                  background: '#FAF0D7',
                   borderRadius: '8px',
                   padding: '1.25rem',
-                  border: '1px solid #e0e0e0',
+                  border: '1px solid #D4AF37',
                   boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
                   opacity: 0.8,
                   cursor: onEventSelect ? 'pointer' : 'default'

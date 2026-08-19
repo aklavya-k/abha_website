@@ -300,7 +300,7 @@ const AdminPanel: React.FC = () => {
   if (!isAuthenticated) {
     return (
       <div className="page-container" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '400px', width: '100%', padding: '2rem', background: '#fff', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+        <div style={{ maxWidth: '400px', width: '100%', padding: '2rem', background: '#FAF0D7', borderRadius: '12px', border: '1.5px solid #D4AF37', boxShadow: '0 8px 24px rgba(180,83,9,0.12)' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#7a1b1b' }}>ABHA Admin Panel</h2>
           <div style={{ marginBottom: '1rem' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>Password:</label>
@@ -388,7 +388,7 @@ const AdminPanel: React.FC = () => {
   {activeTab === 'events' && (
           <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: '1fr 2fr' }}>
             {/* Add Event Form */}
-            <div style={{ background: '#f8f9fa', padding: '2rem', borderRadius: '12px' }}>
+            <div style={{ background: '#FAF0D7', border: '1px solid #D4AF37', padding: '2rem', borderRadius: '12px' }}>
               <h3 style={{ marginTop: 0, marginBottom: '1.5rem', color: '#7a1b1b' }}>
                 {isEditing ? 'Edit Event' : 'Add New Event'}
               </h3>
@@ -399,7 +399,7 @@ const AdminPanel: React.FC = () => {
                   type="text"
                   value={eventForm.title}
                   onChange={(e) => setEventForm({...eventForm, title: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                   placeholder="e.g., Durga Puja 2025"
                 />
               </div>
@@ -410,7 +410,7 @@ const AdminPanel: React.FC = () => {
                   type="date"
                   value={eventForm.date}
                   onChange={(e) => setEventForm({...eventForm, date: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                 />
               </div>
 
@@ -419,7 +419,7 @@ const AdminPanel: React.FC = () => {
                 <select
                   value={eventForm.category}
                   onChange={(e) => setEventForm({...eventForm, category: e.target.value as Event['category']})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                 >
                   <option value="festival">Festival</option>
                   <option value="cultural">Cultural Event</option>
@@ -434,7 +434,7 @@ const AdminPanel: React.FC = () => {
                   type="text"
                   value={eventForm.location}
                   onChange={(e) => setEventForm({...eventForm, location: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                   placeholder="e.g., Harrisburg Community Center"
                 />
               </div>
@@ -444,7 +444,7 @@ const AdminPanel: React.FC = () => {
                 <textarea
                   value={eventForm.description}
                   onChange={(e) => setEventForm({...eventForm, description: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px', minHeight: '100px', resize: 'vertical' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8', minHeight: '100px', resize: 'vertical' }}
                   placeholder="Event description..."
                 />
               </div>
@@ -464,7 +464,7 @@ const AdminPanel: React.FC = () => {
                       reader.readAsDataURL(file);
                     }
                   }}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                 />
                 {eventForm.image && (
                   <div style={{ marginTop: '0.5rem' }}>
@@ -532,7 +532,7 @@ const AdminPanel: React.FC = () => {
                       setEvents(sorted);
                     }}
                     defaultValue="newest"
-                    style={{ padding: '0.4rem 0.6rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                    style={{ padding: '0.4rem 0.6rem', border: '1px solid #D4AF37', borderRadius: '6px' }}
                   >
                     <option value="newest">Newest first</option>
                     <option value="oldest">Oldest first</option>
@@ -544,7 +544,7 @@ const AdminPanel: React.FC = () => {
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {events.map((event) => (
-                    <div key={event.id} style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #ddd' }}>
+                    <div key={event.id} style={{ background: '#FFFDF8', padding: '1.5rem', borderRadius: '8px', border: '1px solid #D4AF37' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                         <h4 style={{ margin: 0, color: '#7a1b1b' }}>{event.title}</h4>
                         <div style={{ display: 'flex', gap: '0.5rem' }}>
@@ -581,7 +581,7 @@ const AdminPanel: React.FC = () => {
         {activeTab === 'photos' && (
           <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: '1fr 2fr' }}>
             {/* Add Photo Form */}
-            <div style={{ background: '#f8f9fa', padding: '2rem', borderRadius: '12px' }}>
+            <div style={{ background: '#FAF0D7', border: '1px solid #D4AF37', padding: '2rem', borderRadius: '12px' }}>
               <h3 style={{ marginTop: 0, marginBottom: '1.5rem', color: '#7a1b1b' }}>Add New Photo</h3>
               
               <div style={{ marginBottom: '1rem' }}>
@@ -590,7 +590,7 @@ const AdminPanel: React.FC = () => {
                   type="file"
                   ref={fileInputRef}
                   accept="image/*"
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                 />
               </div>
 
@@ -600,7 +600,7 @@ const AdminPanel: React.FC = () => {
                   type="text"
                   value={photoForm.alt}
                   onChange={(e) => setPhotoForm({...photoForm, alt: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                   placeholder="e.g., Durga Puja celebration moment"
                 />
               </div>
@@ -611,7 +611,7 @@ const AdminPanel: React.FC = () => {
                   type="text"
                   value={photoForm.category}
                   onChange={(e) => setPhotoForm({...photoForm, category: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                   placeholder="e.g., Festival, Cultural, Community"
                 />
               </div>
@@ -622,7 +622,7 @@ const AdminPanel: React.FC = () => {
                   type="text"
                   value={photoForm.event}
                   onChange={(e) => setPhotoForm({...photoForm, event: e.target.value})}
-                  style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: '6px' }}
+                  style={{ width: '100%', padding: '0.5rem', border: '1px solid #D4AF37', borderRadius: '4px', background: '#FFFDF8' }}
                   placeholder="e.g., Durga Puja 2025"
                 />
               </div>
@@ -653,7 +653,7 @@ const AdminPanel: React.FC = () => {
               ) : (
                 <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
                   {photos.map((photo) => (
-                    <div key={photo.id} style={{ background: 'white', borderRadius: '8px', overflow: 'hidden', border: '1px solid #ddd' }}>
+                    <div key={photo.id} style={{ background: '#FFFDF8', borderRadius: '8px', overflow: 'hidden', border: '1px solid #D4AF37' }}>
                       <img 
                         src={photo.src} 
                         alt={photo.alt}

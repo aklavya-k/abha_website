@@ -5,12 +5,22 @@ import type { AdminEvent } from '../utils/adminData';
 export const getAdminSeedEvents = (): Array<Omit<AdminEvent, 'id' | 'createdAt'>> => [
   // 2026
   {
+    title: 'ABHA Annual Picnic 2026',
+    date: '2026-09-12',
+    description: 'Join us for ABHA\'s Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.',
+    location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
+    category: 'community',
+    image: '/assets/images/events/Picnic2026.jpeg',
+    archived: false
+  },
+  {
     title: 'Boishakhi 2026 (Bengali New Year 1433)',
     date: '2026-05-09',
-    description: 'Save the date. Let\'s sing, dance, eat, and enjoy as we welcome the Bengali New Year with delicious traditional cuisine, live music and cultural performances, community gathering and festive spirit. Cash only for Kolkata Street Food.',
+    description: 'Welcomed the Bengali New Year with delicious traditional cuisine, live music, cultural performances, community gathering, and festive spirit.',
     location: 'Lemoyne Community Hall, 510 Herman Avenue, Lemoyne, PA 17043',
     category: 'festival',
-    image: '/assets/images/events/Boishakhi.jpg'
+    image: '/assets/images/events/Boishakhi.jpg',
+    archived: true
   },
   {
     title: 'Saraswati Puja 2026',
