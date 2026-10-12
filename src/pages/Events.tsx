@@ -40,14 +40,32 @@ const EventsPage: React.FC<EventsPageProps> = ({ initialExpandedEvent, onPageCha
   const eventsByYear: { [key: string | number]: Event[] } = {
     2026: [
       {
-        title: "ABHA Annual Picnic 2026",
-        description: "Join us for our Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages.",
+        title: "Durga Puja 2026 (শুভ শারদীয়া)",
+        description: "ABHA presents Subho Sharodiya Durga Puja 2026! Join us for a grand 2-day celebration featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community lunches & dinners, Sindoor Khela & Bhashan.",
         category: "Upcoming",
+        date: "October 17-18, 2026",
+        time: "Saturday & Sunday",
+        venue: "Enola Fire Company, 102 Chester Road, Enola, PA 17025",
+        details: "Schedule & Details: Saturday (Oct 17): Bodhon, Sashti, Saptami & Ashtami Anjali, Lunch, Cultural Program, Dinner • Sunday (Oct 18): Sandhi Pujo, Nabami, Dashami, Anjali & Aaroti, Sindoor Khela & Bhashan, Lunch. Tickets: Adults (18+): $110 (both days) / $75 (Sat) / $35 (Sun) • Students (18+): $75 (both days) / $50 (Sat) / $25 (Sun) • Minor (7-17): $55 (both days) / $35 (Sat) / $20 (Sun) • Children below 7: Free. *Membership Discount: Adults $10, Minor $5. Venue: Enola Fire Company, 102 Chester Road, Enola, PA 17025. Web: www.abhaweb.com",
+        highlights: [
+          "Oct 17 (Sat): Bodhon, Anjali, Lunch, Cultural Program, Dinner",
+          "Oct 18 (Sun): Sandhi Pujo, Dashami, Sindoor Khela & Bhashan, Lunch",
+          "Traditional Anjali & Aaroti",
+          "Authentic Community Feasts",
+          "Enola Fire Company Venue"
+        ],
+        image: "/assets/images/events/DurgaPuja26.jpeg",
+        fallbackImage: "🏛️"
+      },
+      {
+        title: "ABHA Annual Picnic 2026",
+        description: "A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages at Little Buffalo State Park.",
+        category: "Past",
         date: "September 12, 2026",
         time: "11:00 AM - 6:00 PM",
         venue: "Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074",
-        details: "RSVP BY AUGUST 30, 2026. Event Schedule: 11:00 AM Arrival, Setup & Adda • 12:30 PM Outdoor Games & Kids Activities • 1:30 PM Grand Picnic Feast • 3:30 PM Music, Cultural Performances & Evening Snacks • 6:00 PM Wrap Up. Location: Site 2, Pavilions Loop, Little Buffalo State Park, Newport PA. Contact: associationbengalisharrisburg@hotmail.com • #ABHAPicnic2026",
-        highlights: ["RSVP by August 30, 2026", "Adda & Socializing", "Delicious Picnic Feast & Snacks", "Outdoor Games & Sports", "Cultural Activities & Music", "Little Buffalo State Park (Site 2)"],
+        details: "Event Schedule: 11:00 AM Arrival, Setup & Adda • 12:30 PM Outdoor Games & Kids Activities • 1:30 PM Grand Picnic Feast • 3:30 PM Music, Cultural Performances & Evening Snacks • 6:00 PM Wrap Up. Location: Site 2, Pavilions Loop, Little Buffalo State Park, Newport PA.",
+        highlights: ["Adda & Socializing", "Delicious Picnic Feast & Snacks", "Outdoor Games & Sports", "Cultural Activities & Music", "Little Buffalo State Park (Site 2)"],
         image: "/assets/images/events/Picnic2026.jpeg",
         fallbackImage: "🧺"
       },

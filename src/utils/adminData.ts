@@ -49,7 +49,9 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
         console.log(`Migrated ${eventsMigrated} events from old storage`);
       }
     } else {
-      const canonicalPicnicTitle = 'ABHA Annual Picnic 2026';
+      const canonicalDurgaPujaTitle = 'Durga Puja 2026 (শুভ শারদীয়া)';
+      const isDurgaPujaTitle = (title: unknown) =>
+        title === 'Durga Puja 2026' || title === 'Durga Puja 2026 (শুভ শারদীয়া)' || title === 'ABHA Durga Puja 2026';
       const canonicalBoishakhiTitle = 'Boishakhi 2026 (Bengali New Year 1433)';
       const isBoishakhiTitle = (title: unknown) =>
         title === 'Boishaki 2026 (Bengali New Year 1433)' || title === canonicalBoishakhiTitle;
@@ -58,7 +60,7 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
 
       let changed = false;
 
-      // Archive Saraswati Puja 2026 and Boishakhi 2026 if active; ensure Picnic 2026 is active
+      // Archive Saraswati Puja 2026, Boishakhi 2026, and Picnic 2026; ensure Durga Puja 2026 is active
       const updatedEvents = currentEvents.map((event: any) => {
         if (event.title === 'Saraswati Puja 2026' && !event.archived) {
           changed = true;
@@ -70,15 +72,20 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
           return { ...event, archived: true };
         }
 
-        if (isPicnicTitle(event.title)) {
+        if (isPicnicTitle(event.title) && !event.archived) {
+          changed = true;
+          return { ...event, archived: true };
+        }
+
+        if (isDurgaPujaTitle(event.title)) {
           const next = {
             ...event,
-            title: canonicalPicnicTitle,
-            date: '2026-09-12',
-            description: "Join us for ABHA's Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.",
-            location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
-            category: 'community' as const,
-            image: '/assets/images/events/Picnic2026.jpeg',
+            title: canonicalDurgaPujaTitle,
+            date: '2026-10-17',
+            description: "ABHA presents Subho Sharodiya Durga Puja 2026 on October 17th & 18th! Featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community lunches & dinners, Sindoor Khela & Bhashan at Enola Fire Company.",
+            location: 'Enola Fire Company, 102 Chester Road, Enola, PA 17025',
+            category: 'festival' as const,
+            image: '/assets/images/events/DurgaPuja26.jpeg',
             archived: false
           };
           const different = JSON.stringify(next) !== JSON.stringify(event);
@@ -89,23 +96,23 @@ export const migrateOldData = (): { eventsMigrated: number; photosMigrated: numb
         return event;
       });
 
-      const picnicExists = updatedEvents.some((e: any) => isPicnicTitle(e.title));
+      const durgaPujaExists = updatedEvents.some((e: any) => isDurgaPujaTitle(e.title));
       let finalEvents = updatedEvents;
 
-      if (!picnicExists) {
+      if (!durgaPujaExists) {
         changed = true;
-        const picnicEvent = {
+        const durgaPujaEvent = {
           id: Date.now().toString(),
-          title: canonicalPicnicTitle,
-          date: '2026-09-12',
-          description: "Join us for ABHA's Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.",
-          location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
-          category: 'community' as const,
-          image: '/assets/images/events/Picnic2026.jpeg',
+          title: canonicalDurgaPujaTitle,
+          date: '2026-10-17',
+          description: "ABHA presents Subho Sharodiya Durga Puja 2026 on October 17th & 18th! Featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community lunches & dinners, Sindoor Khela & Bhashan at Enola Fire Company.",
+          location: 'Enola Fire Company, 102 Chester Road, Enola, PA 17025',
+          category: 'festival' as const,
+          image: '/assets/images/events/DurgaPuja26.jpeg',
           archived: false,
           createdAt: new Date().toISOString()
         };
-        finalEvents = [picnicEvent, ...updatedEvents];
+        finalEvents = [durgaPujaEvent, ...updatedEvents];
       }
 
       if (changed) {

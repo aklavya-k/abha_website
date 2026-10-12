@@ -5,13 +5,22 @@ import type { AdminEvent } from '../utils/adminData';
 export const getAdminSeedEvents = (): Array<Omit<AdminEvent, 'id' | 'createdAt'>> => [
   // 2026
   {
+    title: 'Durga Puja 2026 (শুভ শারদীয়া)',
+    date: '2026-10-17',
+    description: 'ABHA presents Subho Sharodiya Durga Puja 2026 on October 17th & 18th! Featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community lunches & dinners, Sindoor Khela & Bhashan at Enola Fire Company.',
+    location: 'Enola Fire Company, 102 Chester Road, Enola, PA 17025',
+    category: 'festival',
+    image: '/assets/images/events/DurgaPuja26.jpeg',
+    archived: false
+  },
+  {
     title: 'ABHA Annual Picnic 2026',
     date: '2026-09-12',
-    description: 'Join us for ABHA\'s Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.',
+    description: 'A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages at Little Buffalo State Park.',
     location: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
     category: 'community',
     image: '/assets/images/events/Picnic2026.jpeg',
-    archived: false
+    archived: true
   },
   {
     title: 'Boishakhi 2026 (Bengali New Year 1433)',

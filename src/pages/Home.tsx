@@ -112,29 +112,28 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
     return () => window.removeEventListener('resize', resize);
   }, [heroStage]);
 
-  // Featured Event (ABHA Annual Picnic 2026)
+  // Featured Event (Durga Puja 2026)
   const featuredEvent = {
-    title: 'ABHA Annual Picnic 2026',
-    date: 'September 12, 2026',
-    time: '11:00 AM - 6:00 PM',
-    venue: 'Site 2, Pavilions Loop, Little Buffalo State Park, 1579 State Park Road, Newport, PA 17074',
-    description: 'Join us for our Annual Picnic 2026 at Little Buffalo State Park! A fun-filled day for families featuring adda, delicious food, outdoor games, cultural activities, and fun for all ages. RSVP by August 30, 2026.',
-    flyerImage: '/assets/images/events/Picnic2026.jpeg',
-    ticketLink: 'mailto:associationbengalisharrisburg@hotmail.com?subject=ABHA%20Annual%20Picnic%202026%20-%20RSVP&body=Hello%20ABHA%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20RSVP%20for%20the%20ABHA%20Annual%20Picnic%202026%20on%20September%2012%2C%202026%20at%20Little%20Buffalo%20State%20Park.%0D%0A%0D%0ANumber%20of%20Attendees%3A%20%0D%0AName%3A%20%0D%0AContact%20Phone%3A%20%0D%0A%0D%0AThank%20you!%0D%0A',
+    title: 'Durga Puja 2026 (শুভ শারদীয়া)',
+    date: 'October 17-18, 2026',
+    time: 'Saturday & Sunday',
+    venue: 'Enola Fire Company, 102 Chester Road, Enola, PA 17025',
+    description: 'ABHA presents Subho Sharodiya Durga Puja 2026! Join us for a grand 2-day celebration featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community feasts, Sindoor Khela & Bhashan.',
+    flyerImage: '/assets/images/events/DurgaPuja26.jpeg',
+    ticketLink: 'mailto:associationbengalisharrisburg@hotmail.com?subject=Durga%20Puja%202026%20Inquiry&body=Hello%20ABHA%20Team%2C%0D%0A%0D%0AI%20am%20interested%20in%20Durga%20Puja%202026%20at%20Enola%20Fire%20Company.%0D%0A%0D%0AThank%20you!%0D%0A',
     artistSegments: [
-      '11:00 AM – Arrival, Setup & Adda',
-      '12:30 PM – Outdoor Games & Sports',
-      '1:30 PM – Grand Community Feast',
-      '3:30 PM – Music & Cultural Activities',
-      '6:00 PM – Wrap Up & Farewell'
+      'Oct 17 (Sat): Bodhon, Sashti, Saptami & Ashtami Anjali',
+      'Oct 17 (Sat): Community Lunch, Cultural Program & Dinner',
+      'Oct 18 (Sun): Sandhi Pujo, Nabami, Dashami, Anjali & Aaroti',
+      'Oct 18 (Sun): Sindoor Khela & Bhashan, Community Lunch'
     ],
     highlights: [
-      'RSVP by August 30, 2026',
-      'Adda & Socializing',
-      'Delicious Picnic Feast',
-      'Outdoor Games & Sports',
-      'Cultural Activities & Music',
-      'Little Buffalo State Park (Site 2)'
+      'Oct 17 & 18 (Saturday & Sunday)',
+      'Traditional Puja, Anjali & Aaroti',
+      'Sandhi Pujo & Sindoor Khela',
+      'Cultural Programs & Music',
+      'Community Lunch & Dinner',
+      'Enola Fire Company'
     ],
     extraPosters: [] as string[]
   };
@@ -157,7 +156,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
       body: [
         'We moved from Texas to PA in 2019 and I think since our second week here, ABHA has become (and remained) our “second home”.',
         'To me ABHA is both quintessentially Bengali and yet very global and inclusive in its outlook. We are home for Bengalis who trace their roots across Bengal – from elite localities of south Kolkata and old bungalows of purono Kolkata to the hills of Darjeeling, red sands of Shantiniketan, and everywhere in between.',
-        'Many amongst our extended family at ABHA may not count Bengali as their mother tongue, but still call Bengal home – through birth, marriage or work. And then there are those who are not ethnic Indians but have made Bengal and Bengali culture the center of their lives.',
+        'Many amongst our extended family at ABHA may not count Bengali as their mother tongue, but still call Bengal home – through birth, marriage or work. And then there are those who are not ethnic Indians but have made Bengali and Bengali culture the center of their lives.',
         'Anyone with a love for our rich culture and a willingness to learn about our heritage will always find a home at ABHA. That is what ABHA stands for and that is why it is my home.'
       ],
       author: 'Dhiman Chattopadhyay',
@@ -194,8 +193,8 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
             '@type': 'Event',
             name: featuredEvent.title,
             description: featuredEvent.description,
-            startDate: '2026-09-12T11:00:00-04:00',
-            endDate: '2026-09-12T18:00:00-04:00',
+            startDate: '2026-10-17T09:00:00-04:00',
+            endDate: '2026-10-18T20:00:00-04:00',
             eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
             eventStatus: 'https://schema.org/EventScheduled',
             location: {
@@ -238,7 +237,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
                 <img
                   src={featuredEvent.flyerImage}
                   alt="Event Flyer"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/images/events/Picnic2026.jpeg'; }}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/assets/images/events/DurgaPuja26.jpeg'; }}
                 />
                 <div className="event-card-zoom-indicator">
                   <span aria-hidden>🔎</span>
@@ -280,7 +279,7 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
                   <strong className="event-info-label">COUNTDOWN</strong>
                   <div style={{ marginTop: '.35rem', display: 'flex', justifyContent: 'center' }}>
                     <Countdown
-                      target="2026-09-12T11:00:00-04:00"
+                      target="2026-10-17T09:00:00-04:00"
                       label=""
                       compact
                       style={{ background: 'transparent', border: 'none', padding: 0, borderRadius: 0 }}
