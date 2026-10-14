@@ -7,7 +7,7 @@ export const getAdminSeedEvents = (): Array<Omit<AdminEvent, 'id' | 'createdAt'>
   {
     title: 'Durga Puja 2026 (শুভ শারদীয়া)',
     date: '2026-10-17',
-    description: 'ABHA presents Subho Sharodiya Durga Puja 2026 on October 17th & 18th! Featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, delicious community lunches & dinners, Sindoor Khela & Bhashan at Enola Fire Company.',
+    description: 'ABHA presents Subho Sharodiya Durga Puja 2026 on October 17th & 18th! Featuring Bodhon, Anjali, Sandhi Pujo, cultural programs, and grand feasts: Saturday Khichuri & Beguni bhog, evening tea & snacks, Saturday dinner with Luchi, Peas Pulao, Katla Kalia & Rasmalai, and Sunday lunch with Basanti Pulao, Patha-er Mangsho & Mishti Doi! (Veg items cooked without onion/garlic separate from non-veg).',
     location: 'Enola Fire Company, 102 Chester Road, Enola, PA 17025',
     category: 'festival',
     image: '/assets/images/events/DurgaPuja26.jpeg',

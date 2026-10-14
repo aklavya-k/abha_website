@@ -3,6 +3,7 @@ import Countdown from '../components/ui/Countdown';
 import VideoTestimonials from '../components/VideoTestimonials';
 import { buildGoogleCalendarUrl } from '../utils/calendar';
 import ShareButton from '../components/ui/ShareButton';
+import PujaMenu from '../components/PujaMenu';
 // Gallery moved to Culture page per request
 
 interface HomePageProps {
@@ -315,6 +316,9 @@ const HomePage: React.FC<HomePageProps> = ({ onPageChange }) => {
                   </div>
                 </div>
               </div>
+
+              {/* Grand Puja Feast & Bhog Menu */}
+              <PujaMenu theme="dark" />
             </div>
         </div>
       </section>

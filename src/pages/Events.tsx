@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { buildGoogleCalendarUrl, parseEventDateRange } from '../utils/calendar';
 import ShareButton from '../components/ui/ShareButton';
 import CountUp from '../components/ui/CountUp';
+import PujaMenu from '../components/PujaMenu';
 
 interface Event {
   title: string;
@@ -15,6 +16,77 @@ interface Event {
   image: string;
   fallbackImage: string;
 }
+
+const EventCardImage: React.FC<{
+  src: string;
+  alt: string;
+  fallbackEmoji: string;
+  onZoom: () => void;
+}> = ({ src, alt, fallbackEmoji, onZoom }) => {
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setCurrentSrc(src);
+    setFailed(false);
+  }, [src]);
+
+  const handleError = () => {
+    if (currentSrc.includes('Picnic2026.jpeg')) {
+      setCurrentSrc('/assets/images/events/Picnic2026.jpg');
+    } else if (currentSrc.includes('Picnic2026.jpg')) {
+      setCurrentSrc('assets/images/events/Picnic2026.jpeg');
+    } else if (currentSrc.includes('Boishakhi26.jpeg')) {
+      setCurrentSrc('/assets/images/events/Boishakhi26.jpg');
+    } else if (currentSrc.includes('Boishakhi26.jpg')) {
+      setCurrentSrc('/assets/images/events/Boishakhi.jpg');
+    } else if (currentSrc.includes('Boishakhi.jpg')) {
+      setCurrentSrc('/assets/images/events/Boishakhi-2024.jpg');
+    } else if (currentSrc.includes('DurgaPuja26.jpeg')) {
+      setCurrentSrc('/assets/images/events/DurgaPuja26.jpg');
+    } else if (currentSrc.includes('WhatsApp_Image')) {
+      setCurrentSrc('/assets/images/events/saraswati-puja.jpg');
+    } else if (currentSrc.endsWith('.jpeg')) {
+      setCurrentSrc(currentSrc.replace(/\.jpeg$/, '.jpg'));
+    } else if (currentSrc.startsWith('/')) {
+      setCurrentSrc(currentSrc.slice(1));
+    } else {
+      setFailed(true);
+    }
+  };
+
+  if (failed) {
+    return (
+      <div className="event-image-fallback" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+        <span className="event-emoji" style={{ fontSize: '3.5rem' }}>{fallbackEmoji}</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={currentSrc}
+      alt={alt}
+      className="event-image"
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        zIndex: 2,
+        cursor: 'zoom-in',
+        display: 'block'
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
+        onZoom();
+      }}
+      onError={handleError}
+    />
+  );
+};
 
 interface EventsPageProps {
   initialExpandedEvent?: string;
@@ -424,28 +496,12 @@ const EventsPage: React.FC<EventsPageProps> = ({ initialExpandedEvent, onPageCha
               >
                 {/* Event Image Header */}
                 <div className={`event-image-header ${event.category.toLowerCase()}`}>
-                  <img 
+                  <EventCardImage
                     src={event.image}
                     alt={event.title}
-                    className="event-image"
-                    style={{ cursor: 'zoom-in' }}
-                    onClick={(e) => { e.stopPropagation(); setLightboxSrc(event.image); }}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                    onLoad={(e) => {
-                      const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (fallbackElement) {
-                        fallbackElement.style.display = 'none';
-                      }
-                    }}
+                    fallbackEmoji={event.fallbackImage}
+                    onZoom={() => setLightboxSrc(event.image)}
                   />
-                  
-                  <div className="event-image-fallback">
-                    <span className="event-emoji">
-                      {event.fallbackImage}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Event Content */}
@@ -527,6 +583,12 @@ const EventsPage: React.FC<EventsPageProps> = ({ initialExpandedEvent, onPageCha
                         </div>
                       )}
 
+                      {/* Detailed Puja Bhog & Food Menu for Durga Puja 2026 */}
+                      {event.title.includes('Durga Puja 2026') && (
+                        <div style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+                          <PujaMenu theme="light" />
+                        </div>
+                      )}
 
                       <div className="event-cta" style={{ display: 'flex', gap: '.75rem', flexWrap: 'wrap' }}>
                         <a 
